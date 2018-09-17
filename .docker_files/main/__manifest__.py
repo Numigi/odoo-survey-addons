@@ -10,6 +10,8 @@
     'license': 'LGPL-3',
     'category': 'Other',
     'summary': 'Install all addons required for testing.',
-    'depends': [],
+    'depends': [
+        'survey_type',  # TA#4707
+    ],
     'installable': True,
 }

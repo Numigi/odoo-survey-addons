@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="survey_form_with_type" model="ir.ui.view">
+        <field name="name">Survey Form: Add type</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml">
+            <notebook position="before">
+                <group>
+                    <field name="type_id"/>
+                </group>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="survey_tree_with_type" model="ir.ui.view">
+        <field name="name">Survey List: Add type</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_tree"/>
+        <field name="arch" type="xml">
+            <field name="title" position="after">
+                <field name="type_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="survey_search_with_type" model="ir.ui.view">
+        <field name="name">Survey Search View: Add type</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_search"/>
+        <field name="arch" type="xml">
+            <field name="title" position="after">
+                <field name="type_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
