@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* survey_answer_for_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-31 13:03+0000\n"
+"PO-Revision-Date: 2019-01-31 13:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: survey_answer_for_partner
+#: model_terms:ir.ui.view,arch_db:survey_answer_for_partner.survey_form_with_answer_for_button
+msgid "Answer Survey For"
+msgstr "Répondre au sondage pour"
+
+#. module: survey_answer_for_partner
+#: model_terms:ir.ui.view,arch_db:survey_answer_for_partner.view_answer_for_partner_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: survey_answer_for_partner
+#: model:ir.actions.act_window,name:survey_answer_for_partner.action_answer_survey_for
+#: model_terms:ir.ui.view,arch_db:survey_answer_for_partner.view_answer_for_partner_wizard
+msgid "Select A Partner"
+msgstr "Sélectionner un partenaire"
+
+#. module: survey_answer_for_partner
+#: model:ir.model.fields,field_description:survey_answer_for_partner.field_survey_answer_for_partner_wizard__survey_id
+msgid "Survey"
+msgstr "Sondage"
+
+#. module: survey_answer_for_partner
+#: model:ir.model,name:survey_answer_for_partner.model_survey_answer_for_partner_wizard
+msgid "Survey Answer For Partner Wizard"
+msgstr "Assistant répondre sondage pour partenaire"
+
+#. module: survey_answer_for_partner
+#: model_terms:ir.ui.view,arch_db:survey_answer_for_partner.view_answer_for_partner_wizard
+msgid "Validate"
+msgstr "Valider"

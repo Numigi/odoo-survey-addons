@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--
+        In vanilla Odoo, the `Back to Survey` is only visible for the group `Website / Publisher`.
+
+        This is a design error because users of the survey module should be able to test the survey
+        and get back to the backend.
+    -->
+    <template id="back_to_survey" name="Back" inherit_id="survey.back">
+        <div position="attributes">
+            <attribute name="groups">survey.group_survey_user</attribute>
+        </div>
+    </template>
+
+</odoo>

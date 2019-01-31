@@ -12,6 +12,7 @@
     'summary': 'Install all addons required for testing.',
     'depends': [
         'survey_type',  # TA#4707
+        'survey_answer_for_partner',  # TA#7643
     ],
     'installable': True,
 }
