@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_answer_survey_for" model="ir.actions.act_window">
+        <field name="name">Select A Partner</field>
+        <field name="res_model">survey.answer.for.partner.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_answer_for_partner_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="survey_form_with_answer_for_button" model="ir.ui.view">
+        <field name="name">Survey: Answer For Partner Button</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_form"/>
+        <field name="arch" type="xml">
+            <button name="action_send_survey" position="after">
+                <button name="%(action_answer_survey_for)d"
+                        string="Answer Survey For"
+                        type="action"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('id', '=', False)]}"
+                        context="{'default_survey_id': active_id}"
+                        groups="survey.group_survey_user"
+                        />
+            </button>
+
+            <!-- Prevent all the header from being invisible to the group `Survey / User`-->
+            <header position="attributes">
+                <attribute name="groups"></attribute>
+            </header>
+            <!-- Only the button `Send Survey` should be reserved to the group `Survey / Manager` -->
+            <button name="action_send_survey" position="attributes">
+                <attribute name="groups">survey.group_survey_manager</attribute>
+            </button>
+        </field>
+    </record>
+
+</odoo>
