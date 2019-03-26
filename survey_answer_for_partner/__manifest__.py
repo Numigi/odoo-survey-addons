@@ -15,6 +15,7 @@
         'answer_survey_for_wizard.xml',
         'answer_survey_for_button.xml',
         'fix_back_to_survey.xml',
+        'partner_smart_button.xml',
     ],
     'installable': True,
 }

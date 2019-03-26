@@ -26,6 +26,16 @@ Note that the new answer is in the name of the selected partner.
 
 .. image:: ./static/description/survey_form_answers_list.png
 
+Smart Button On Partners
+------------------------
+On the form view of a partner, a `Survey Answers` smart button is added.
+
+.. image:: static/description/partner_smart_button.png
+
+When clicking on the button, the list of survey answers is displayed.
+
+.. image:: static/description/partner_smart_button_answers.png
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)
