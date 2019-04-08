@@ -12,6 +12,7 @@
     'summary': 'Allow answering a survey for someone else.',
     'depends': ['survey'],
     'data': [
+        'answer_create_user.xml',
         'answer_survey_for_wizard.xml',
         'answer_survey_for_button.xml',
         'fix_back_to_survey.xml',
