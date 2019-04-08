@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- 
+        The create_uid field is relevant when this module is installed.
+        The user who creates the answer is the sales person who fills the form.
+        The partner is the client for whom the survey is answered.
+    -->
+    <record id="survey_answer_form_with_create_user" model="ir.ui.view">
+        <field name="name">Survey Answer: Add Create User</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_form"/>
+        <field name="arch" type="xml">
+            <field name="token" position="after">
+                <field name="create_uid" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
