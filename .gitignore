@@ -1,2 +1,11 @@
 .log
 /.idea
+__pycache__/
+*.pyc
+.venv
+Pipfile
+docker-compose.override.yml
+.DS_STORE
+.third-party-addons
+.pytest_cache
+.vscode
