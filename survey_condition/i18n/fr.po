@@ -1,0 +1,181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* survey_condition
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-21 13:42+0000\n"
+"PO-Revision-Date: 2019-01-21 08:43-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: survey_condition
+#: selection:survey.user_input,state:0
+msgid "Completed"
+msgstr "Complété"
+
+#. module: survey_condition
+#: selection:survey.user_input,state:0
+msgid "Completed But Not Sent"
+msgstr ""
+
+#. module: survey_condition
+#: code:addons/survey_condition/models/survey.py:56
+#, python-format
+msgid ""
+"Could not evaluate the next page for the survey {survey}. Invalid skip "
+"option {option}."
+msgstr ""
+"La page suivante n'a pas pu être évaluée pour le sondage {survey}. L'option "
+"de saut de page {option} est invalide."
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: survey_condition
+#: selection:survey.label,skip_option:0
+msgid "Go To Specific Page"
+msgstr "Sauter à une page définie"
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__id
+msgid "ID"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__input_id
+msgid "Input"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: survey_condition
+#: selection:survey.user_input,state:0
+msgid "Not started yet"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_label__skip_option_page_id
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input_page_history__page_id
+msgid "Page"
+msgstr "Page"
+
+#. module: survey_condition
+#: selection:survey.user_input,state:0
+msgid "Partially completed"
+msgstr "Complété partiellement"
+
+#. module: survey_condition
+#: model_terms:ir.ui.view,arch_db:survey_condition.send_confirmation_page
+msgid "Please confirm that you wish to send the survey."
+msgstr "Confirmez que vous souhaitez transmettre le sondage."
+
+#. module: survey_condition
+#: model_terms:ir.ui.view,arch_db:survey_condition.send_confirmation_page
+msgid "Previous Page"
+msgstr "Page précédente"
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_label__question_survey_id
+msgid "Question Survey"
+msgstr "Sondage de la question"
+
+#. module: survey_condition
+#: selection:survey.label,skip_option:0
+msgid "Send Form"
+msgstr "Envoyer le formulaire"
+
+#. module: survey_condition
+#: selection:survey.label,skip_option:0
+msgid "Skip Next Page"
+msgstr "Sauter la page suivante"
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_label__skip_option
+msgid "Skip Option"
+msgstr "Option de saut"
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_label__skip_option_survey_id
+msgid "Skip Option Survey"
+msgstr "Sondage de l'option de saut"
+
+#. module: survey_condition
+#: model:ir.model.fields,field_description:survey_condition.field_survey_user_input__state
+msgid "Status"
+msgstr ""
+
+#. module: survey_condition
+#: model_terms:ir.ui.view,arch_db:survey_condition.send_confirmation_page
+msgid "Submit Survey"
+msgstr "Transmettre le sondage"
+
+#. module: survey_condition
+#: model:ir.model,name:survey_condition.model_survey_survey
+msgid "Survey"
+msgstr "Sondage"
+
+#. module: survey_condition
+#: model_terms:ir.ui.view,arch_db:survey_condition.send_confirmation_page
+msgid "Survey Completed"
+msgstr "Sondage complété"
+
+#. module: survey_condition
+#: model:ir.model,name:survey_condition.model_survey_label
+msgid "Survey Label"
+msgstr ""
+
+#. module: survey_condition
+#: model:ir.model,name:survey_condition.model_survey_user_input
+msgid "Survey User Input"
+msgstr ""
+
+#. module: survey_condition
+#: code:addons/survey_condition/models/survey_label.py:46
+#, python-format
+msgid ""
+"The question choice {choice} has a skip option to the {page} of the survey "
+"{skip_option_survey}. This survey is different from the survey of the "
+"question {question} ({question_survey})."
+msgstr ""
+"Le choix de question {choice} a une option de saut à la page {page} du "
+"sondage {skip_option_survey}. Ce sondage n'est pas le même que celui de la "
+"question {question} ({question_survey})."
+
+#. module: survey_condition
+#: model:ir.model,name:survey_condition.model_survey_user_input_page_history
+msgid "survey.user_input.page.history"
+msgstr ""
