@@ -57,7 +57,7 @@ class SurveyWithSkipConditions(Survey):
 
             for question in questions:
                 answer_tag = "%s_%s_%s" % (survey.id, page_id, question.id)
-                env['survey.user_input_line'].sudo(user=user_id).save_lines(
+                env['survey.user_input_line'].with_user(user=user_id).save_lines(
                     user_input.id, question, post, answer_tag)
 
             go_back = post['button_submit'] == 'previous'
@@ -91,7 +91,7 @@ class SurveyWithSkipConditions(Survey):
             # Modified block ends here
             ##############################################
 
-            user_input.sudo(user=user_id).write(vals)
+            user_input.with_user(user=user_id).write(vals)
             ret['redirect'] = '/survey/fill/%s/%s' % (survey.id, post['token'])
 
             if go_back:
