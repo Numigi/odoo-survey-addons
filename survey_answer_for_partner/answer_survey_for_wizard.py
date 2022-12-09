@@ -53,7 +53,6 @@ class SurveyAnswerForPartnerWizard(models.TransientModel):
     survey_id = fields.Many2one('survey.survey', 'Survey')
     partner_id = fields.Many2one('res.partner', 'Partner')
 
-    @api.multi
     def action_validate(self):
         """Open the website page with the survey answered for the partner.
 

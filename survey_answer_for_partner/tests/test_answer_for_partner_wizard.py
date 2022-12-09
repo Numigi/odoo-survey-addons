@@ -19,7 +19,7 @@ class TestAnswerForPartnerWizard(common.SavepointCase):
         })
 
     def test_survey_input_has_the_selected_partner(self):
-        wizard = self.env['survey.answer.for.partner.wizard'].sudo(self.user).create({
+        wizard = self.env['survey.answer.for.partner.wizard'].with_user(self.user).create({
             'survey_id': self.survey.id,
             'partner_id': self.partner.id,
         })
