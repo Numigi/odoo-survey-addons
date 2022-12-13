@@ -42,7 +42,8 @@
 
     <menuitem id="menu_survey_type"
               name="Survey Types"
-              parent="survey.menu_surveys_configuration"
-              action="action_survey_type"/>
+              parent="survey.menu_surveys"
+              action="action_survey_type"
+              sequence ="100"/>
 
 </odoo>

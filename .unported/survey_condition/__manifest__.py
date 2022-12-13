@@ -1,4 +1,4 @@
-# © 2018 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# © 2022 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
@@ -14,7 +14,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/survey_question.xml',
+        'views/survey_label.xml',
         'views/templates.xml',
+        'data/survey.xml',
     ],
     'installable': True,
 }

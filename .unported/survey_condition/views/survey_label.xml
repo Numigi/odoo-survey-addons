@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <!-- LABELS -->
+        <record model="ir.ui.view" id="survey_label_tree">
+            <field name="name">survey_label_tree</field>
+            <field name="model">survey.label</field>
+            <field name="arch" type="xml">
+                <tree string="Survey Label" create="false">
+                    <field name="sequence" widget="handle"/>
+                    <field name="question_id"/>
+                    <field name="question_id_2"/>
+                    <field name="value"/>
+                    <field name="quizz_mark" groups="base.group_no_one"/>
+                </tree>
+            </field>
+        </record>
+        <record id="survey_label_search" model="ir.ui.view">
+            <field name="name">survey_label_search</field>
+            <field name="model">survey.label</field>
+            <field name="arch" type="xml">
+                <search string="Search Label">
+                    <field name="question_id" string="Question"/>
+                    <filter name="group_by_question" string="Question" domain="[]" context="{'group_by':'question_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_survey_label_form">
+            <field name="name">Labels</field>
+            <field name="res_model">survey.label</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="survey_label_search"/>
+            <field name="context">{'search_default_group_by_question': True}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_empty_folder">
+                No survey labels found
+              </p>
+            </field>
+        </record>
+
+    </odoo>

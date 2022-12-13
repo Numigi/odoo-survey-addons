@@ -1,4 +1,4 @@
-# © 2018 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# © 2022 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo.tests import common
@@ -9,23 +9,23 @@ class TestSurveySkipOption(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.survey = cls.env.ref('survey.feedback_form')
+        cls.survey = cls.env.ref('survey.survey_feedback')
         cls.user = cls.env.ref('base.demo_user0')
         cls.user_input = cls.env['survey.user_input'].create({
             'survey_id': cls.survey.id,
         })
 
-        cls.page_1 = cls.env.ref('survey.feedback_1')
-        cls.page_2 = cls.env.ref('survey.feedback_2')
-        cls.page_3 = cls.env.ref('survey.feedback_3')
-        cls.page_4 = cls.env.ref('survey.feedback_4')
+        cls.page_1 = cls.env.ref('survey.survey_feedback_p1')
+        cls.page_2 = cls.env.ref('survey.survey_feedback_p2')
+        cls.page_3 = cls.env.ref('survey.survey_feedback_p1')
+        cls.page_4 = cls.env.ref('survey.survey_feedback_p2')
 
         # Make questions 1.2, 3.1 and 4.1 simple_choice instead of multiple_choice
         questions = (
-            cls.env.ref('survey.feedback_1_2') | cls.env.ref('survey.feedback_3_1') |
-            cls.env.ref('survey.feedback_4_1')
+            cls.env.ref('survey.survey_feedback_p1_q1') | cls.env.ref('survey.survey_feedback_p1_q2') |
+            cls.env.ref('survey.survey_feedback_p2_q1')
         )
-        questions.write({'type': 'simple_choice'})
+        questions.write({'question_type': 'simple_choice'})
 
         # Page 1
         cls.input_line_1_1 = cls.env['survey.user_input_line'].create({
