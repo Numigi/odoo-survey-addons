@@ -9,7 +9,7 @@ class TestPartnerSmartButton(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.survey = cls.env.ref('survey.feedback_form')
+        cls.survey = cls.env.ref('survey.survey_feedback')
         cls.partner_1 = cls.env['res.partner'].create({'name': 'Partner'})
         cls.partner_2 = cls.env['res.partner'].create({'name': 'Partner 2'})
 

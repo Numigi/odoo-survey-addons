@@ -37,13 +37,13 @@
         <field name="name">Survey Types</field>
         <field name="res_model">survey.type</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="view_type">form</field>
         <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_survey_type"
               name="Survey Types"
-              parent="survey.menu_surveys_configuration"
-              action="action_survey_type"/>
+              parent="survey.menu_surveys"
+              action="action_survey_type"
+              sequence ="100"/>
 
 </odoo>

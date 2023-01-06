@@ -9,9 +9,9 @@
     <record id="survey_answer_form_with_create_user" model="ir.ui.view">
         <field name="name">Survey Answer: Add Create User</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_form"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
         <field name="arch" type="xml">
-            <field name="token" position="after">
+            <field name="survey_id" position="after">
                 <field name="create_uid" readonly="1"/>
             </field>
         </field>

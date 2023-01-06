@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--            <record model="survey.question" id="feedback_1">-->
+<!--            <field name="title">About your Odoo usage</field>-->
+<!--            <field name="survey_id" ref="survey.survey_feedback_p1" />-->
+<!--            <field name="sequence">1</field>-->
+<!--                <field name="is_page">True</field>-->
+<!--            <field name="description">&lt;p&gt;&lt;/p&gt;</field>-->
+<!--        </record>-->
+                <record model="survey.label" id="choice_1_1_1">
+                    <field name="question_id" ref="survey.survey_feedback_p1_q1"/>
+                    <field name="sequence">1</field>
+                    <field name="value">I live in Canada</field>
+                </record>
+
+
+</odoo>

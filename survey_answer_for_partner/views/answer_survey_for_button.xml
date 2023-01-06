@@ -4,7 +4,6 @@
     <record id="action_answer_survey_for" model="ir.actions.act_window">
         <field name="name">Select A Partner</field>
         <field name="res_model">survey.answer.for.partner.wizard</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_answer_for_partner_wizard"/>
         <field name="target">new</field>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="survey_question_form_with_skip_option" model="ir.ui.view">
+        <field name="name">Survey Question View With Skip Option</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='save_as_nickname']" position="after">
+                  <separator />
+                        <field name="labels_ids" string="Type of answers" context="{'default_question_id': active_id}" attrs="{'invisible': [('question_type', 'not in', ['simple_choice', 'multiple_choice', 'matrix'])]}">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="value" string="Choices"/>
+                                <field name="quizz_mark" groups="base.group_no_one"/>
+                                <field name="question_id" invisible="1"/>
+                                <field name="skip_option"
+                                       attrs="{'column_invisible': [('parent.question_type', '!=', 'simple_choice')]}"/>
+                                <field name="skip_option_page_id"
+                                       force_save="1"
+                                       attrs="{'column_invisible': [('parent.question_type', '!=', 'simple_choice')],
+                                               'required': [('skip_option', '=', 'specific_page')],
+                                               'readonly': [('skip_option', '!=', 'specific_page')]}" />
+<!--                                       domain="[('question_ids', '!=', question_id),-->
+<!--                                                ('survey_id.page_ids.question_ids', '=', question_id)]"/>-->
+                            </tree>
+                        </field>
+                <separator />
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

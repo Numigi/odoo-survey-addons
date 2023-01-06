@@ -1,10 +1,11 @@
-# © 2019 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# © 2022 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 import uuid
 from odoo import api, fields, models
 from odoo.addons.base.models.res_partner import Partner
-from odoo.addons.survey.models.survey import Survey, SurveyUserInput
+from odoo.addons.survey.models.survey_user import  SurveyUserInput
+from odoo.addons.survey.models.survey_survey import Survey
 from odoo.tools import pycompat
 
 
@@ -25,7 +26,7 @@ def _generate_survey_input_token() -> str:
 
     See function create_token of odoo/addons/survey/wizard/survey_email_compose_message.py.
     """
-    return pycompat.text_type(uuid.uuid4())
+    return pycompat.to_text(uuid.uuid4())
 
 
 def create_survey_input_for_partner(survey: Survey, partner: Partner) -> SurveyUserInput:
@@ -37,10 +38,9 @@ def create_survey_input_for_partner(survey: Survey, partner: Partner) -> SurveyU
     """
     return survey.env['survey.user_input'].create({
         'survey_id': survey.id,
-        'date_create': fields.Datetime.now(),
-        'type': SURVEY_INPUT_TYPE,
+       # 'type': SURVEY_INPUT_TYPE,
         'state': 'new',
-        'token': _generate_survey_input_token(),
+        'access_token': _generate_survey_input_token(),
         'partner_id': partner.id,
     })
 
@@ -53,17 +53,20 @@ class SurveyAnswerForPartnerWizard(models.TransientModel):
     survey_id = fields.Many2one('survey.survey', 'Survey')
     partner_id = fields.Many2one('res.partner', 'Partner')
 
-    @api.multi
     def action_validate(self):
         """Open the website page with the survey answered for the partner.
 
-        This method was inpired and adapted from the method action_test_survey
+        This method was inspired and adapted from the method action_test_survey
         of survey.survey defined in odoo/addons/survey/models/survey.py.
         """
-        url = self.survey_id.with_context(relative_url=True).public_url
         user_input = create_survey_input_for_partner(self.survey_id, self.partner_id)
         return {
-            "type": "ir.actions.act_url",
-            "target": "self",
-            "url": "{}/{}".format(url, user_input.token)
+            'type': 'ir.actions.act_url',
+            'name': "Test Survey",
+            'target': 'self',
+            'url': '/survey/test/%s' % user_input.access_token,
         }
+
+
+
+
