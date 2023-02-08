@@ -1,13 +1,11 @@
 # © 2022 Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+import logging
 
-import uuid
-from odoo import api, fields, models
-from odoo.addons.base.models.res_partner import Partner
-from odoo.addons.survey.models.survey_user import  SurveyUserInput
-from odoo.addons.survey.models.survey_survey import Survey
-from odoo.tools import pycompat
+import werkzeug
+from odoo import fields, models
 
+_logger = logging.getLogger(__name__)
 
 """
 The type of survey input should be `manually` in this module's use case.
@@ -15,38 +13,9 @@ The type of survey input should be `manually` in this module's use case.
 If the input is created, but the user quits before sending the answers,
 it will be garbage collected by a cron automatically.
 """
-SURVEY_INPUT_TYPE = 'manually'
-
-
-def _generate_survey_input_token() -> str:
-    """Generate a token for a survey input.
-
-    This function reproduces the behavior found in Odoo for survey invitations
-    sent by email.
-
-    See function create_token of odoo/addons/survey/wizard/survey_email_compose_message.py.
-    """
-    return pycompat.to_text(uuid.uuid4())
-
-
-def create_survey_input_for_partner(survey: Survey, partner: Partner) -> SurveyUserInput:
-    """Create a user input for the given survey and partner.
-
-    :param survey: the survey to answer.
-    :param partner: the partner for whom to answer for.
-    :return: the user input
-    """
-    return survey.env['survey.user_input'].create({
-        'survey_id': survey.id,
-       # 'type': SURVEY_INPUT_TYPE,
-        'state': 'new',
-        'access_token': _generate_survey_input_token(),
-        'partner_id': partner.id,
-    })
 
 
 class SurveyAnswerForPartnerWizard(models.TransientModel):
-
     _name = 'survey.answer.for.partner.wizard'
     _description = 'Survey Answer For Partner Wizard'
 
@@ -54,19 +23,18 @@ class SurveyAnswerForPartnerWizard(models.TransientModel):
     partner_id = fields.Many2one('res.partner', 'Partner')
 
     def action_validate(self):
-        """Open the website page with the survey answered for the partner.
-
-        This method was inspired and adapted from the method action_test_survey
-        of survey.survey defined in odoo/addons/survey/models/survey.py.
-        """
-        user_input = create_survey_input_for_partner(self.survey_id, self.partner_id)
+        user = self.env.user
+        public_groups = self.env.ref("base.group_public", raise_if_not_found=False)
+        if public_groups:
+            public_users = public_groups.sudo().with_context(active_test=False).mapped("users")
+            user = public_users[0]
+        user_input_id = self.survey_id.sudo()._create_answer(user=user, partner=self.partner_id)
+        url1 = '/survey/partner/%s' % self.survey_id.access_token
+        url = '%s?%s' % (
+            url1, werkzeug.urls.url_encode({'answer_token': user_input_id and user_input_id.access_token or None}))
         return {
             'type': 'ir.actions.act_url',
-            'name': "Test Survey",
+            'name': "Start Survey",
             'target': 'self',
-            'url': '/survey/test/%s' % user_input.access_token,
+            'url': url,
         }
-
-
-
-
