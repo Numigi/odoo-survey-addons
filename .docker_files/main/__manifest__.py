@@ -1,4 +1,4 @@
-# © 2022 Numigi
+# © 2024 Numigi
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
@@ -11,9 +11,7 @@
     'category': 'Other',
     'summary': 'Install all addons required for testing.',
     'depends': [
-        'survey_answer_for_partner',  # TA#7643
-       # 'survey_condition',
-        'survey_type',  # TA#4707
+        'survey',
     ],
     'installable': True,
 }
